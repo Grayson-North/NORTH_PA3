@@ -1,0 +1,51 @@
+package com.company;
+import java.util.Scanner;
+
+public class Main{
+
+    public static void main(String[] args) {
+        double annualIntrestRate;
+        annualIntrestRate = 0.04;
+        double savingsBalance = 0;
+        double saver1 = 2000.00;
+        double saver2 = 3000.00;
+        int i;
+
+        for (i = 0; i < 12; i++)
+        {
+            savingsBalance = saver1 + calculateMonthlyInterest(saver1, annualIntrestRate);
+        }
+        System.out.printf("saver1 balance: %fl.2\n", savingsBalance);
+        for (i = 0; i < 12; i++)
+        {
+            savingsBalance = saver2 + calculateMonthlyInterest(saver2, annualIntrestRate);
+        }
+        System.out.printf("saver2 balance: %fl.2\n", savingsBalance);
+
+        annualIntrestRate = modifyIntersestRate(annualIntrestRate);
+
+        for (i = 0; i < 12; i++)
+        {
+            savingsBalance = saver1 + calculateMonthlyInterest(saver1, annualIntrestRate);
+        }
+        System.out.printf("saver1 balance: %fl.2\n", savingsBalance);
+        for (i = 0; i < 12; i++)
+        {
+            savingsBalance = saver2 + calculateMonthlyInterest(saver2, annualIntrestRate);
+        }
+        System.out.printf("saver2 balance: %fl.2\n", savingsBalance);
+
+
+    }
+
+    public static double calculateMonthlyInterest(double x, double y){
+        double monthlyInterest;
+        monthlyInterest = (x * y) / 12;
+        return monthlyInterest;
+    }
+
+    public static double modifyIntersestRate(double n){
+        n = 0.05;
+        return n;
+    }
+}
